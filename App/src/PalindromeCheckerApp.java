@@ -1,27 +1,22 @@
-import java.util.LinkedList;
-
-public class UseCase8PalindromeCheckerApp {
+public class UseCase9PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "level";
+        String input = "madam";
 
-        LinkedList<Character> list = new LinkedList<>();
-
-        for (char c : input.toCharArray()) {
-            list.add(c);
-        }
-
-        boolean isPalindrome = true;
-
-        while (list.size() > 1) {
-            if (!list.removeFirst().equals(list.removeLast())) {
-                isPalindrome = false;
-                break;
-            }
-        }
+        boolean isPalindrome = check(input, 0, input.length() - 1);
 
         System.out.println("Input: " + input);
         System.out.println("Is Palindrome?: " + isPalindrome);
+    }
+
+    private static boolean check(String a, int start, int end) {
+        if (start >= end) {
+            return true;
+        }
+        if (a.charAt(start) != a.charAt(end)) {
+            return false;
+        }
+        return check(a, start + 1, end - 1);
     }
 }
