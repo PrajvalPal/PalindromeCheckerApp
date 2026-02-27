@@ -36,20 +36,22 @@ class DequeStrategy implements PalindromeStrategy {
     }
 }
 
-public class UseCase12PalindromeCheckerApp {
+public class UseCase13PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
         String input = "level";
 
-        PalindromeStrategy strategy;
+        PalindromeStrategy[] strategies = {new StackStrategy(), new DequeStrategy()};
 
-        // Use StackStrategy for this example; could be swapped dynamically
-        strategy = new StackStrategy();
-
-        boolean isPalindrome = strategy.check(input);
-
-        System.out.println("Input: " + input);
-        System.out.println("Is Palindrome? " + isPalindrome);
+        for (PalindromeStrategy strategy : strategies) {
+            long startTime = System.nanoTime();
+            boolean isPalindrome = strategy.check(input);
+            long endTime = System.nanoTime();
+            System.out.println("Strategy: " + strategy.getClass().getSimpleName());
+            System.out.println("Input: " + input);
+            System.out.println("Is Palindrome: " + isPalindrome);
+            System.out.println("Execution Time: " + (endTime - startTime) + " ns\n");
+        }
     }
 }
