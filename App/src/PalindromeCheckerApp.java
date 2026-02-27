@@ -1,35 +1,55 @@
 /**
- * UseCase1PalindromeCheckerApp
+ * UseCase2PalindromeCheckerApp
  *
- * This class represents the entry point of the
- * Palindrome Checker Management System.
+ * Use Case 2: Hardcoded Palindrome Validation
+ *
+ * Description:
+ * This class demonstrates basic palindrome validation
+ * using a hardcoded string value.
  *
  * At this stage, the application:
- * - Starts execution from the main() method
- * - Displays a welcome message
- * - Shows application version
+ * - Stores a predefined string
+ * - Compares characters from both ends
+ * - Determines whether the string is a palindrome
+ * - Displays the result on the console
  *
- * No palindrome logic is implemented yet.
- * The goal is to establish a clear startup flow.
+ * This use case introduces fundamental comparison logic
+ * before using advanced data structures.
  *
  * @author Developer
- * @version 1.8
+ * @version 2.0
  */
 
-public class PalindromeCheckerApp {
+public class UC2-HardCodePalidrome {
 
     /**
-     * Application entry point.
-     * This is the first method executed by the JVM
-     * when the program starts.
+     * Application entry point for UC2.
      *
      * @param args Command-line arguments
      */
     public static void main(String[] args) {
 
-        System.out.println("Welcome to the Palindrome Checker Management System");
-        System.out.println("Version: 1.0");
-        System.out.println("System initialized successfully.");
+        // Hardcoded input string
+        String input = "madam";
 
+        // Variable to store result
+        boolean isPalindrome = true;
+
+        // Loop only till half of the string length
+        for (int i = 0; i < input.length() / 2; i++) {
+
+            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Display output
+        System.out.println("Input text: " + input);
+        System.out.println("Is it a Palindrome?");
+        System.out.println(isPalindrome);
     }
+}
+
+void main() {
 }
